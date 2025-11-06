@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+
+  --color-primary-500: #000000;
+  --color-primary-400: #301E5F;
+  --color-accent: #6A33F8;
+  --color-alert: #C72424;
+  --color-neutal-600: #757575;
+  --color-neutal-500: #9E9E9E;
+  --color-neutal-400: #BDBDBD;
+  --color-neutal-300: #E0E0E0;
+  --color-neutal-200: #EEEEEE;
+  --color-neutal-100: #F7F7F7;
+  --color-basic: #FAFAFA;
+
+  --table-border-color: theme('colors.neutral.200');
+  --table-hover-bg: theme('colors.neutral.50');
+  --table-striped-bg: theme('colors.neutral.50');
+}
+
+@layer base {
+  * {
+    @apply leading-normal
+  }
+
+  body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 400;
+    color: var(--color-primary-500);
+  }
+
+  p {
+    @apply leading-normal
+  }
+
+  /* 全局 table 基礎樣式（預設 responsive） */
+  table {
+    @apply w-full border-collapse border border-neutral-200 bg-white text-sm text-neutral-600;
+    font-family: 'Noto Sans TC', sans-serif;
+
+    /* Responsive：小畫面時強制水平滾動，避免內容溢出 */
+    @apply overflow-x-auto;
+    /* 或用 md:overflow-visible 來在大畫面隱藏滾動 */
+  }
+
+  th,
+  td {
+    @apply px-3 py-2 text-center border-b border-neutral-200;
+    /* 預設 padding 較小 */
+
+    /* Responsive padding：小畫面緊湊，大畫面寬鬆 */
+    @apply sm:px-4 md:px-6 lg:px-8;
+    @apply sm:py-3 md:py-4;
+  }
+
+  th {
+    @apply font-semibold text-neutral-900 bg-neutral-50;
+
+    /* Responsive 文字大小：小畫面小字，大畫面正常 */
+    @apply text-xs sm:text-sm md:text-base;
+  }
+
+  /* 最後一行無底邊框 */
+  tbody tr:last-child th,
+  tbody tr:last-child td {
+    @apply border-b-0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full px-3 mx-auto max-w-[1320px!important]
+  }
+
+  .table-hover tbody tr:hover {
+    @apply bg-neutral-50;
+  }
+
+  .table-striped tbody tr:nth-child(even) {
+    @apply bg-neutral-50;
+  }
+
+  .table-bordered th,
+  .table-bordered td {
+    @apply border border-neutral-200;
+    @apply border-0 sm:border;
+    @apply text-center
+  }
+
+  .table-compact th,
+  .table-compact td {
+    @apply px-2 py-1 text-xs;
+    @apply md:px-4 md:py-2 md:text-sm;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+      -ms-overflow-style: none;
+      /* IE/Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+      /* Chrome/Safari */
+    }
+  .scrollbar-custom {
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    scrollbar-width: thin;
+    /* Firefox：細滾動條 */
+    scrollbar-color: theme('colors.accent') theme('colors.neutral.100');
+    /* thumb/track 顏色 */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: theme('colors.neutral.500');
+    /* 軌道：淺灰 */
+    border-radius: 3px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: theme('colors.accent');
+    /* 滑塊：你的 accent 紫色 */
+    border-radius: 3px;
+    transition: background 0.2s;
+    /* 平滑過渡 */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.primary.400');
+    /* hover 變深紫 */
+  }
+}
