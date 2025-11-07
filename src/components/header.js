@@ -9,7 +9,7 @@ export function generateMainNav() {
   const mainNav = document.querySelector('#mainNav');
 
   // set class
-  const mainNavClass = "block py-5 text-2xl leading-normal hover:text-accent transition-all duration-500 font-medium";
+  const mainNavClass = "block py-2 lg:py-5 lg:text-2xl leading-normal hover:text-accent transition-all duration-500 font-medium";
 
   mainNavs.forEach(nav => {
     let a = document.createElement('a')
