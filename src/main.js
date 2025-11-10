@@ -12,7 +12,6 @@ const getProducts = async () => {
   try {
 		const res = await axios.get(`${apiUrl}/customer/${api}/products`);
     tempProducts = [...res.data.products];
-		console.log(tempProducts);
 	} catch (error) {
 		console.log(error);
 	}
@@ -50,23 +49,10 @@ const getProducts = async () => {
   })
 }
 
-const deleteAllBtn = document.querySelector("#deleteAll");
-if (deleteAllBtn) {
-	deleteAllBtn.addEventListener("click", async () => {
-		try {
-			await axios.delete(`${apiUrl}/customer/${api}/carts`);
-			getCharts(); 
-		} catch (error) {
-			console.log(error);
-		}
-	});
-}
-
 const getCharts = async () => {
 	try {
 		const res = await axios.get(`${apiUrl}/customer/${api}/carts`);
 		tempCarts = [...res.data.carts];
-		console.log(tempCarts);
 	} catch (error) {
 		console.log(error);
 	}
@@ -106,6 +92,7 @@ const getCharts = async () => {
 	if (tempCarts.length == 0) {
 		cartListEl.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-2xl">購物車沒有東西</td></tr>';
 		document.querySelector("#totalAmout").innerHTML = "0";
+    bindDeleteAllBtn();
 		return;
 	}
 
@@ -116,6 +103,9 @@ const getCharts = async () => {
 		const formattedPrice = item.product.price.toLocaleString("en-US");
 		const itemTotalPrice = item.product.price * item.quantity;
 		const formattedItemTotalPrice = itemTotalPrice.toLocaleString("en-US");
+		const currentQty = item.quantity;
+		const minusDisabled = currentQty <= 1 ? "disabled" : "";
+		const plusDisabled = currentQty >= 20 ? "disabled" : "";
 		totalAmount += itemTotalPrice;
 		tempHTML += `<tr>
                   <td>
@@ -125,10 +115,16 @@ const getCharts = async () => {
                     </div>
                   </td>
                   <td>NT$${formattedPrice}</td>
-                  <td>${item.quantity}</td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <button type="button" data-current-qty="${currentQty}" data-cart-id="${item.id}" data-edit="0" class="editItem w-10 h-10 flex items-center justify-center leading-0 border border-primary-500 font-bold text-lg px-3 py-1 cursor-pointer rounded-md transition-all hover:bg-accent hover:text-white hover:border-accent disabled:bg-alert disabled:cursor-not-allowed ${minusDisabled}"><span>-</span></button>
+                      <div>${currentQty}</div>
+                      <button type="button" data-current-qty="${currentQty}" data-cart-id="${item.id}" data-edit="1" class="editItem w-10 h-10 flex items-center justify-center leading-0 border border-primary-500 font-bold text-lg px-3 py-1 cursor-pointer rounded-md transition-all hover:bg-accent hover:text-white hover:border-accent disabled:bg-alert disabled:cursor-not-allowed ${plusDisabled}"><span>+</span></button>
+                    </div>
+                  </td>
                   <td>NT$${formattedItemTotalPrice}</td>
                   <td class="discardBtn">
-                    <button data-cart-id="${item.id}" class="deleteItem border border-primary-500 font-bold text-lg px-3 py-1 cursor-pointer rounded-md transition-all hover:bg-accent hover:text-white hover:border-accent">X</button>
+                    <button type="button" data-cart-id="${item.id}" class="deleteItem w-10 h-10 text-center border border-primary-500 font-bold text-lg px-3 py-1 cursor-pointer rounded-md transition-all hover:bg-accent hover:text-white hover:border-accent">X</button>
                   </td>
                 </tr>`;
 	});
@@ -144,23 +140,103 @@ const getCharts = async () => {
 			deleteCartsItem(id);
 		});
 	});
+
+  const editBtn = document.querySelectorAll('.editItem');
+  editBtn.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      if (btn.disabled) return;
+
+      const id = btn.getAttribute("data-cart-id");
+      const type = btn.getAttribute("data-edit");
+      const qty = parseInt(btn.getAttribute("data-current-qty"));
+
+      // console.log(id, qty, type)
+      if (isNaN(qty)) {
+				console.error("Invalid quantity:", qty);
+				return;
+			}
+
+      editItem(id, qty, type);
+
+    })
+  })
+
+  bindDeleteAllBtn();
 };
 
-const addCartsItem = async (productId, quantity = 1) => {
-	const objData = {
-		data: {
-			productId,
-      quantity
-		},
-	};
+const bindDeleteAllBtn = () => {
+  const deleteAllBtn = document.querySelector("#deleteAll");
+  if(deleteAllBtn) {
+    deleteAllBtn.removeEventListener('click', handleDeleteAll);
+    deleteAllBtn.addEventListener('click', handleDeleteAll);
+  }
+  
+}
+
+const handleDeleteAll = async () => {
+  try {
+    await axios.delete(`${apiUrl}/customer/${api}/carts`);
+    getCharts(); 
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const addCartsItem = async (productId) => {
+  console.log(productId)
 	try {
-		const res = await axios.post(`${apiUrl}/customer/${api}/carts`, objData );
-    console.log(res.data)
-		getCharts();
+		const res = await axios.get(`${apiUrl}/customer/${api}/carts`);
+		const currentCarts = res.data.carts;
+		const existingItem = currentCarts.find((cart) => cart.product.id === productId);
+
+		let newQuantity = 1;
+    existingItem ? newQuantity = Math.min(existingItem.quantity + 1, 20) : null
+
+		const objData = {
+			data: {
+				productId,
+				quantity: newQuantity,
+			},
+		};
+
+		const postRes = await axios.post(`${apiUrl}/customer/${api}/carts`, objData);
+		getCharts(); 
 	} catch (error) {
 		console.log(error);
 	}
 };
+
+const editItem = async (cartId, currentQty, editType) => {
+
+  if (typeof currentQty !== "number" || isNaN(currentQty)) {
+		console.error("currentQty must be a valid Number:", currentQty);
+		return;
+	}
+
+  try {
+    let newQuantity = editType === '0' ? currentQty - 1 : currentQty + 1;
+    // if (newQuantity < 1 || newQuantity > 20) return; 
+    if (newQuantity > 20) {
+      alert(`產品不能超過20`);
+      return;
+    }; 
+    
+    newQuantity < 1 ?  deleteCartsItem(cartId) : null;
+    
+    const objData = {
+			data: {
+				id: cartId,
+				quantity: newQuantity,
+			},
+		};
+    const res = await axios.patch(`${apiUrl}/customer/${api}/carts`, objData);
+    getCharts();
+  } catch(error) {
+    console.log(error.response.data.message);
+  }
+  
+}
 
 const deleteCartsItem = async (id) => {
   try {
@@ -170,12 +246,129 @@ const deleteCartsItem = async (id) => {
   } catch (error) {
     console.log(error)
   }
-}
+};
+
+// Form Submit
+const bindSubmitForm = () => {
+	const submitBtn = document.getElementById("orderFormBtn");
+	if (!submitBtn) return;
+
+	submitBtn.addEventListener("click", async (e) => {
+		e.preventDefault(); // 防止任何預設行為
+		await submitOrder();
+	});
+};
+
+const submitOrder = async () => {
+	const form = document.getElementById("orderForm");
+	const nameInput = document.getElementById("name");
+	const telInput = document.getElementById("tel");
+	const emailInput = document.getElementById("mail");
+	const addressInput = document.getElementById("address");
+	const paymentSelect = document.getElementById("payment");
+	const submitBtn = document.getElementById("orderFormBtn");
+
+	const errorSpans = form.querySelectorAll("[data-error-message]");
+	errorSpans.forEach((span) => span.classList.add("hidden"));
+
+	// 驗證函數
+	const validateField = (input, errorKey, required = true) => {
+		if (required && !input.value.trim()) {
+			const errorSpan = form.querySelector(`[data-error-message="${errorKey}"]`);
+			if (errorSpan) {
+				errorSpan.classList.remove("hidden");
+			}
+			return false;
+		}
+		return true;
+	};
+
+	const validateEmail = (email) => {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	};
+
+	let isValid = true;
+
+	// 姓名驗證
+	if (!validateField(nameInput, "name")) isValid = false;
+
+	// 電話驗證
+	if (!validateField(telInput, "tel")) isValid = false;
+
+	// Email 驗證
+	if (!validateField(emailInput, "mail")) {
+		isValid = false;
+	} else if (!validateEmail(emailInput.value.trim())) {
+		const errorSpan = form.querySelector(`[data-error-message="mail"]`);
+		if (errorSpan) {
+			errorSpan.textContent = "Email 格式錯誤";
+			errorSpan.classList.remove("hidden");
+		}
+		isValid = false;
+	}
+
+	// 地址驗證
+	if (!validateField(addressInput, "address")) isValid = false;
+
+	// 支付方式驗證
+	if (!paymentSelect.value) {
+		const errorSpan = form.querySelector(`[data-error-message="payment"]`);
+		if (errorSpan) {
+			errorSpan.classList.remove("hidden");
+		}
+		isValid = false;
+	}
+
+	if (!isValid) {
+		submitBtn.textContent = "送出預定資料"; // 重置按鈕文字如果有變化
+		return;
+	}
+
+	// 收集資料
+	const paymentMap = {
+		1: "ATM",
+		2: "Apple Pay",
+		3: "Google Pay",
+		4: "WeChat Pay",
+	};
+	const selectedPayment = paymentMap[paymentSelect.value] || "ATM";
+
+	const orderData = {
+		data: {
+			user: {
+				name: nameInput.value.trim(),
+				tel: telInput.value.trim(),
+				email: emailInput.value.trim(),
+				address: addressInput.value.trim(),
+				payment: selectedPayment,
+			},
+		},
+	};
+
+	try {
+		submitBtn.textContent = "送出中..."; // 顯示載入狀態
+		submitBtn.disabled = true;
+
+		const res = await axios.post(`${apiUrl}/customer/${api}/orders`, orderData);
+		console.log("訂單提交成功:", res.data);
+		form.reset();
+		getCharts();
+		alert("預定成功！感謝您的訂購。");
+	} catch (error) {
+		console.error("訂單提交失敗:", error);
+		alert("送出失敗，請檢查資料後再試。");
+	} finally {
+		submitBtn.textContent = "送出預定資料";
+		submitBtn.disabled = false;
+	}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   generateMainNav();
   getProducts();
   getCharts()
-
+  bindDeleteAllBtn();
+  bindSubmitForm();
 })
 

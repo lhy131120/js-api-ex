@@ -521,10 +521,16 @@
 									</tr>
 								</thead>
 								<tbody id="cartList"></tbody>
-                <tfoot>
-                  <tr>
+								<tfoot>
+									<tr>
 										<td>
-											<button type="button" id="deleteAll" class="py-2 px-3 border border-primary-500 rounded-sm text-primary cursor-pointer transition-all hover:bg-alert hover:text-white hover:border-alert">刪除所有品項</button>
+											<button
+												type="button"
+												id="deleteAll"
+												class="py-2 px-3 border border-primary-500 rounded-sm text-primary cursor-pointer transition-all hover:bg-alert hover:text-white hover:border-alert"
+											>
+												刪除所有品項
+											</button>
 										</td>
 										<td></td>
 										<td></td>
@@ -533,8 +539,83 @@
 										</td>
 										<td>NT$<span id="totalAmout"></span></td>
 									</tr>
-                </tfoot>
+								</tfoot>
 							</table>
+						</div>
+					</div>
+				</section>
+
+				<section class="py-10 lg:py-16">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">我的購物車</h2>
+						<div class="max-w-[430px] mx-auto">
+							<form action="" class="px-3" id="orderForm">
+								<div class="flex flex-col gap-4 mb-10">
+									<div class="flex flex-col gap-1.5">
+										<label for="name" class="text-black">姓名</label>
+										<input
+											id="name"
+											type="text"
+											placeholder="請輸入姓名"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="name" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="tel" class="text-black">電話</label>
+										<input
+											id="tel"
+											type="tel"
+											placeholder="請輸入電話" 
+                      maxlength="10"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="tel" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="mail" class="text-black">Email</label>
+										<input
+											id="mail"
+											type="mail"
+											placeholder="請輸入 Email"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="mail" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="address" class="text-black">寄送地址</label>
+										<input
+											id="address"
+											type="text"
+											placeholder="請輸入寄送地址"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="address" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="payment" class="text-black">交易方式</label>
+										<select
+											name="payment"
+											id="payment"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										>
+											<option value="">請選擇交易方式</option>
+											<option value="1">ATM</option>
+											<option value="2">Apple Pay</option>
+											<option value="3">Google Pay</option>
+											<option value="4">WeChat Pay</option>
+										</select>
+										<span data-error-message="payment" class="hidden text-alert text-sm">必填</span>
+									</div>
+								</div>
+								<button type="button" id="orderFormBtn" class="text-xl bg-black p-3 text-white w-full cursor-pointer">
+									送出預定資料
+								</button>
+							</form>
 						</div>
 					</div>
 				</section>
