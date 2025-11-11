@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/js-api-ex/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>js-api-ex</title>
+		<script type="module" crossorigin src="/js-api-ex/assets/index-B9eenm9G.js"></script>
+		<link rel="stylesheet" crossorigin href="/js-api-ex/assets/index-DcjQWL0k.css">
+	</head>
+	<body>
+		<div id="app">
+			<header id="header" class="container flex items-center justify-between">
+				<h1 class="py-3">
+					<a href="/" target="_self" class="font-roboto font-bold sm:text-lg lg:text-2xl">WOWOROOM</a>
+				</h1>
+				<nav id="mainNav" class="hidden sm:flex items-center gap-6 lg:gap-12 py-3"></nav>
+			</header>
+			<main>
+				<section id="homeHero" class="border-t-10 lg:border-t-40 border-black py-10 lg:py-16">
+					<div class="container">
+						<div class="mb-10 lg:mb-14">
+							<img src="/js-api-ex/assets/home-hero-banner-Q_ACIkxH.jpg" alt="窩窩家居 跟您一起品味生活" />
+						</div>
+						<h2 id="adv" class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">
+							床墊優勢
+						</h2>
+						<ul id="heroList" class="flex flex-col lg:flex-row gap-6">
+							<li class="lg:basic-1/3">
+								<div class="mb-4 lg:mb-6 leading-0">
+									<img class="w-full" src="/js-api-ex/assets/home-hero-sub1-AGMP_Mw0.jpg" alt="原木料環保" />
+								</div>
+								<p class="text-lg lg:text-2xl text-center">原木料環保</p>
+							</li>
+							<li class="lg:basic-1/3">
+								<div class="mb-4 lg:mb-6 leading-0">
+									<img class="w-full" src="/js-api-ex/assets/home-hero-sub2-C_EJgHeT.jpg" alt="好收納" />
+								</div>
+								<p class="text-lg lg:text-2xl text-center">好收納</p>
+							</li>
+							<li class="lg:basic-1/3">
+								<div class="mb-4 lg:mb-6 leading-0">
+									<img class="w-full" src="/js-api-ex/assets/home-hero-sub3-sgY6Ut1z.jpg" alt="好組裝" />
+								</div>
+								<p class="text-lg lg:text-2xl text-center">好組裝</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="compare" class="py-10 lg:py-16 bg-basic">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">家具比較</h2>
+						<div class="max-w-[636px] mx-auto">
+							<table class="table-responsive">
+								<thead>
+									<tr>
+										<th role="presentation"></th>
+										<td class="text-primary-500">窩窩系統模組家具</td>
+										<td class="text-neutal-600">組合式家具</td>
+										<td class="text-neutal-600">實木家具</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>可單人自行組裝</th>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+										<td>不一定</td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>可多次重複拆裝</th>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>床墊規格彈性大</th>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+										<td>不一定</td>
+										<td>不一定</td>
+									</tr>
+									<tr>
+										<th>小客車即可搬運</th>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+										<td>不一定</td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>材質可長久使用</th>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+										<td></td>
+										<td>
+											<span class="inline-block w-6 h-6 lg:w-10 lg:h-10"
+												><svg
+													class="w-full h-full"
+													width="40"
+													height="40"
+													viewBox="0 0 40 40"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<g clip-path="url(#clip0_4006_629)">
+														<path
+															d="M15.0001 27L8.00008 20L5.66675 22.3334L15.0001 31.6667L35.0001 11.6667L32.6667 9.33337L15.0001 27Z"
+															fill="#6A33FF"
+														/>
+													</g>
+													<defs>
+														<clipPath id="clip0_4006_629"><rect width="40" height="40" fill="white" /></clipPath>
+													</defs></svg
+											></span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</section>
+
+				<section id="comments" class="py-10 lg:py-16 bg-accent">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem] text-white">
+							好評推薦
+						</h2>
+					</div>
+					<div class="overflow-x-auto py-5 scrollbar-hide">
+						<ul class="list-none flex gap-6 mb-6 ms-40">
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<ul class="list-none flex gap-6 ms-20">
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="flex bg-white w-full">
+									<div class="w-24 h-24 leading-0">
+										<img src="/js-api-ex/assets/item1-CxEl2wsn.jpg" class="w-full h-full object-cover" alt="" />
+									</div>
+									<div class="p-3 flex flex-col justify-between flex-1 min-w-[248px] w-full">
+										<div class="flex gap-3">
+											<div class="h-10 w-10"><img src="/js-api-ex/assets/I9L7WOr-_LXE44Ad.png" alt="" /></div>
+											<div>
+												<div>王六角</div>
+												<div class="text-sm text-accent leading-tight">Jodan 雙人床架</div>
+											</div>
+										</div>
+										<div>CP值很高。</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="transportation" class="py-10 lg:py-16">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">運送方式</h2>
+
+						<div
+							class="flex gap-8 items-center justify-center max-w-[375px] lg:max-w-[772px] mx-auto flex-wrap lg:flex-nowrap"
+						>
+							<div class="basis-1/3">
+								<div
+									class="border-3 border-primary-500 rounded-[50%] p-7 text-center aspect-square w-full h-full flex items-center justify-center mb-3 lg:mb-4 max-w-[115px] mx-auto"
+								>
+									<span class="block leading-0 w-14 h-14 lg:w-15 lg:h-15"
+										><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHjSURBVHgB7dndTcMwEMDxPx8vvHUEj8AIHiUbABO0TABM0LIBGyQjsEHKBPDIW8mpFARqUttx/NH6J50qpZGc0yX2OYGiKIpMLbrYDMQ7R+Dc4txZFxWZs0lYzMmcbcKqC03GbBMW2Vd5iGZ4IkspZFL1Uowa2GQUeigZk1v6nrzooT9NEm6+IxeveFCRx+1c41ELbBIPdSAHq2XpmbStuljjkbSWMvVnW11hU+GPLp5Ik1zXmgmkWOUWw+oK29YyxSpPVt2dlKrcYukCe59dXJHGrukOT43GIVLl7Ko71oq4CWsCU8RLdkkkNXESVkSiOaHq7tSES7ZlZHVd3mn9pwhHNjBrIqoIW93o5CJCJFvj6U66xF3F/otYdfGGH9K7SyfVEJlif3WXHKkHElsfp6RIdH2cSkXG1XWZtFTP8Vu2k0xIDZYTmkvC657jN8TR2Jzs0mm9EL6S3rgkLMnm9r3ph2sv/UimSZ8xjmK7RVTE0ZDXh74iafLmcs5vTy2/0m0p/AkxhhFF/9Zw9FuJgGMYO7QPrhkvxBhGNGabdo07PdUYLuvwtefzgo7h4yVenxnTsx7DJWHTj1cN7kKMYUUmjKFnq2W8EGMYU5zYsrS7oBV/m4IFfp9dFWCMoiiKdH0ByrepISfdoUIAAAAASUVORK5CYII=" alt=""
+									/></span>
+								</div>
+								<div class="text-center">
+									<div class="font-medium text-xl">STEP.1</div>
+									<div>選購商品</div>
+								</div>
+							</div>
+							<div class="w-10 h-10 flex items-center justify-center shrink-0 mb-15">
+								<span class="block leading-0 lg:h-10 lg:w-10"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACRSURBVHgB7dbBCQJBEETRryZgKIZiCJWJhmBKhmBEOgMLIrrsYbaxWOpBwxw/fRgaIiIiYsGRQnvGndtcKHJg3KnNbXrfMaQ2z2nKNjlCvAMtI8VnoF2k+A60ihS/A20ixXzgcOQa/+CSHX8m5rd3xYAwjuuEcVwnjOM6YRzXicK4ta6ZB6bb60oP1oiIiI17AZGlPkdTJtLQAAAAAElFTkSuQmCC" alt="" /></span>
+							</div>
+							<div class="basis-1/3">
+								<div
+									class="border-3 border-primary-500 rounded-[50%] p-7 text-center aspect-square w-full h-full flex items-center justify-center mb-3 lg:mb-4 max-w-[115px] mx-auto"
+								>
+									<span class="block leading-0 w-14 h-14 lg:w-15 lg:h-15"
+										><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACsSURBVHgB7dexDcIwEAXQgwVYBTbIJmSEjJBVmIARgAlgFDYAI1xEERhREMXiPek3PjdufPoRAAAwmS5ln3JIaaNyiw/zc8p6dHZJ2YzOmpw5OOZ8rU25vUk3utsX7k6dPgqWhdm2MGuiUqUHXwuzVVSq9OBTYbaLSvm0XmjjuZIeq6kLAGBK6mGoh+rhbKmHA+phph4CAD+jHoZ6qB7Olno4oB5m6iEAAPyhO9vsq4XzOPKnAAAAAElFTkSuQmCC" alt=""
+									/></span>
+								</div>
+								<div class="text-center">
+									<div class="font-medium text-xl">STEP.1</div>
+									<div>填寫預定資料</div>
+								</div>
+							</div>
+							<div class="w-10 h-10 hidden lg:flex items-center justify-center shrink-0 mb-15">
+								<span class="block leading-0 lg:h-10 lg:w-10"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACRSURBVHgB7dbBCQJBEETRryZgKIZiCJWJhmBKhmBEOgMLIrrsYbaxWOpBwxw/fRgaIiIiYsGRQnvGndtcKHJg3KnNbXrfMaQ2z2nKNjlCvAMtI8VnoF2k+A60ihS/A20ixXzgcOQa/+CSHX8m5rd3xYAwjuuEcVwnjOM6YRzXicK4ta6ZB6bb60oP1oiIiI17AZGlPkdTJtLQAAAAAElFTkSuQmCC" alt="" /></span>
+							</div>
+							<div class="basis-1/3">
+								<div
+									class="border-3 border-primary-500 rounded-[50%] p-7 text-center aspect-square w-full h-full flex items-center justify-center mb-3 lg:mb-4 max-w-[115px] mx-auto"
+								>
+									<span class="block leading-0 w-14 h-14 lg:w-15 lg:h-15"
+										><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACzSURBVHgB7ddNCsJAEEThOlpuZt3MoylCClwYf2IC0z3vg9rP2wy0BAAAAADo6bJuCo/Q27r20c+x7aNfxWaLmnkXazVDrIitj1gRWx+xIrY+YjVA7Bm359CxR59hJWKPih42dtH2w/ZGD/9BWcdFDx8b1v/RZWLD2h9dLjas36PLxob1fXT52LA+R7eJDWs76KpmsWFth7WLDWui2LAmig1rotiwJooNa6LYWAQAAACgjTvR8Rp1sW0Y1QAAAABJRU5ErkJggg==" alt=""
+									/></span>
+								</div>
+								<div class="text-center">
+									<div class="font-medium text-xl">STEP.1</div>
+									<div>預定成功</div>
+								</div>
+							</div>
+							<div class="w-10 h-10 flex items-center justify-center shrink-0 mb-15">
+								<span class="block leading-0 lg:h-10 lg:w-10"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACRSURBVHgB7dbBCQJBEETRryZgKIZiCJWJhmBKhmBEOgMLIrrsYbaxWOpBwxw/fRgaIiIiYsGRQnvGndtcKHJg3KnNbXrfMaQ2z2nKNjlCvAMtI8VnoF2k+A60ihS/A20ixXzgcOQa/+CSHX8m5rd3xYAwjuuEcVwnjOM6YRzXicK4ta6ZB6bb60oP1oiIiI17AZGlPkdTJtLQAAAAAElFTkSuQmCC" alt="" /></span>
+							</div>
+							<div class="basis-1/3">
+								<div
+									class="border-3 border-primary-500 rounded-[50%] p-7 text-center aspect-square w-full h-full flex items-center justify-center mb-3 lg:mb-4 max-w-[115px] mx-auto"
+								>
+									<span class="block leading-0 w-14 h-14 lg:w-15 lg:h-15"
+										><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG2SURBVHgB7ZrvcYMwDMVfMkG7gUdxN6ETtBskGyQbpJu4I3SDZINkA2rfhWuOGiP5Dwai3937YsDWQ0JAAiAIgiAIgiDUQVsZq6tVuwC5WBtEsgOqBJ1DOzBpANQOOlUaDAxQNdgcMj5jG/hx1+wLls3N6rU/uB3Y2Wf23eqC+XGxevOMsxLmK5FukiPmU7ZH/BkbijnJcIeyOkcGmev61MyYkwx3fGLae/T1vmZKzMkHK6svTJNVhTwxkw4+jSzYoEyZuzl1YF2F4dsomZiScuRuao9NyccHwpcUGcpZV4HjFdKybRDOqgbt4YgMNbADwhngNjVKBR0Y85HhZOOM8BuKAq2pGYSrRoNfNWRiyvCEuKZ2RnxTqmqYWpKPTS21KVU3/Jg1FZjfbdOB7W6byRAHmTaTxppaH25Tmp3hLtsNYU2N/A8uZNoCOsFf5m7MFFqTTFtI/aaW2pTYhod+8WCdnQgud2mUZTM6cKe04an452+LJ0MMrx0xvHbE8NoRw2tHDK+dIcM3rJQhwz9YPt+cnTXKvaNOpQZM9gBqBx2rPSJpsJzvPa4Y/4tGEARBEARBKMYvcEmqkjNyLmoAAAAASUVORK5CYII=" alt=""
+									/></span>
+								</div>
+								<div class="text-center">
+									<div class="font-medium text-xl">STEP.1</div>
+									<div>Email 付款資訊</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="py-10 lg:py-16">
+					<div class="container">
+						<div class="mb-10">
+							<select name="" id="productSelect">
+								<option value="全部" selected="">全部</option>
+								<option value="床架">床架</option>
+								<option value="收納">收納</option>
+								<option value="窗簾">窗簾</option>
+							</select>
+						</div>
+						<ul
+							id="productList"
+							class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 list-none mb-0"
+						></ul>
+					</div>
+				</section>
+
+				<section class="py-10 lg:py-16 bg-basic">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">我的購物車</h2>
+						<div id="cartArea">
+							<table>
+								<thead>
+									<tr>
+										<th width="40%">品項</th>
+										<th width="15%">單價</th>
+										<th width="15%">數量</th>
+										<th width="15%">金額</th>
+										<th width="15%"></th>
+									</tr>
+								</thead>
+								<tbody id="cartList"></tbody>
+								<tfoot>
+									<tr>
+										<td>
+											<button
+												type="button"
+												id="deleteAll"
+												class="py-2 px-3 border border-primary-500 rounded-sm text-primary cursor-pointer transition-all hover:bg-alert hover:text-white hover:border-alert"
+											>
+												刪除所有品項
+											</button>
+										</td>
+										<td></td>
+										<td></td>
+										<td>
+											<p>總金額:</p>
+										</td>
+										<td>NT$<span id="totalAmout"></span></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</section>
+
+				<section class="py-10 lg:py-16">
+					<div class="container">
+						<h2 class="text-center mb-5 lg:mb-10 font-medium leading-normal text-2xl lg:text-[2rem]">我的購物車</h2>
+						<div class="max-w-[430px] mx-auto">
+							<form action="" class="px-3" id="orderForm">
+								<div class="flex flex-col gap-4 mb-10">
+									<div class="flex flex-col gap-1.5">
+										<label for="name" class="text-black">姓名</label>
+										<input
+											id="name"
+											type="text"
+											placeholder="請輸入姓名"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="name" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="tel" class="text-black">電話</label>
+										<input
+											id="tel"
+											type="tel"
+											placeholder="請輸入電話" 
+                      maxlength="10"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="tel" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="mail" class="text-black">Email</label>
+										<input
+											id="mail"
+											type="mail"
+											placeholder="請輸入 Email"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="mail" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="address" class="text-black">寄送地址</label>
+										<input
+											id="address"
+											type="text"
+											placeholder="請輸入寄送地址"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										/>
+										<span data-error-message="address" class="hidden text-alert text-sm">必填</span>
+									</div>
+
+									<div class="flex flex-col gap-1.5">
+										<label for="payment" class="text-black">交易方式</label>
+										<select
+											name="payment"
+											id="payment"
+											class="py-2 px-3 border border-neutal-400 rounded-md placeholder:text-neutal-400"
+										>
+											<option value="">請選擇交易方式</option>
+											<option value="1">ATM</option>
+											<option value="2">Apple Pay</option>
+											<option value="3">Google Pay</option>
+											<option value="4">WeChat Pay</option>
+										</select>
+										<span data-error-message="payment" class="hidden text-alert text-sm">必填</span>
+									</div>
+								</div>
+								<button type="button" id="orderFormBtn" class="text-xl bg-black p-3 text-white w-full cursor-pointer">
+									送出預定資料
+								</button>
+							</form>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
