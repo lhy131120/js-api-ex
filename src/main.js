@@ -185,7 +185,6 @@ const handleDeleteAll = async () => {
 };
 
 const addCartsItem = async (productId) => {
-	console.log(productId);
 	try {
 		const res = await axios.get(`${apiUrl}/customer/${api}/carts`);
 		const currentCarts = res.data.carts;

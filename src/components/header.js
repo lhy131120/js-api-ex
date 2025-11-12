@@ -3,7 +3,7 @@ export function generateMainNav() {
 		{ section: "床墊優勢", path: "#adv" },
 		{ section: "好評推薦", path: "#comments" },
 		{ section: "運送方式", path: "#transportation" },
-		{ section: "後台訂單", path: "./dashboard.html" },
+		{ section: "後台訂單", path: "/js-api-ex/dashboard.html" },
 	];
 
   const mainNav = document.querySelector('#mainNav');
