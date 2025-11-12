@@ -3,7 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
 	base: "/js-api-ex/",
 	plugins: [tailwindcss()],
-  build: {
-    outDir: "dist",
-  }
+	// Explicitly set output dir to 'dist' to match the deploy script (gh-pages -d dist)
+	build: {
+		outDir: "dist",
+	},
 });
