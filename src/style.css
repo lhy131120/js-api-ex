@@ -141,7 +141,8 @@
     /* hover 變深紫 */
   }
 
-    #payment {
+    #payment,
+    #productFilter {
       /* 移除預設箭頭 */
       -webkit-appearance: none;
       -moz-appearance: none;

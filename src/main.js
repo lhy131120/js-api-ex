@@ -246,6 +246,56 @@ const deleteCartsItem = async (id) => {
 	}
 };
 
+// Filter Products
+const bindFilterBtn = () => {
+  const filterSelect = document.getElementById("productFilter");
+  if (!filterSelect) return;
+
+  filterSelect.addEventListener("change", (e) => {
+    const selectedCategory = e.target.value;
+    let filteredProducts = [];
+
+    if (selectedCategory === "全部") {
+      filteredProducts = tempProducts;
+    } else {
+      filteredProducts = tempProducts.filter(product => product.category === selectedCategory);
+    }
+
+    let tempHTML = "";
+    filteredProducts.forEach((item) => {
+      const formattedPrice = item.price.toLocaleString("en-US");
+      const formattedOriginPrice = item.origin_price.toLocaleString("en-US");
+      tempHTML += `<li class="group hover:coursor-pointer">
+                  <div class="relative mb-3">
+                    <span class="z-10 px-4 md:px-6 py-2 text-sm md:text-xl absolute end-0 top-5 bg-black block text-white">新品</span>
+                    <div class="max-h-[330px] leading-0 overflow-hidden">
+                      <img src="${item.images}" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 ease-in-out" alt="${item.title}">
+                    </div>
+                    <button type="button" class="addItem p-3 text-xl text-center w-full cursor-pointer bg-black group-hover:bg-accent text-white transition-colors duration-300 ease-in-out" data-id="${item.id}">加入購物車</button>
+                  </div>
+                  <div>
+                    <p class="mb-2 text-lg lg:text-xl">${item.title}</p>
+                    <div class="flex flex-col">
+                      <span class="block leading-normal text-sm lg:text-xl"><del>NT$${formattedOriginPrice}</del></span>
+                      <span class="block leading-normal text-lg lg:text-2xl">NT$${formattedPrice}</span>
+                    </div>
+                  </div>
+                </li>`;
+    });
+    
+    if (document.querySelector("#productList")) document.querySelector("#productList").innerHTML = tempHTML;
+
+    const addItemBtns = document.querySelectorAll(".addItem");
+    addItemBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = btn.getAttribute("data-id");
+        addCartsItem(id);
+      });
+    });
+  });
+}
+
 // Form Submit
 const bindSubmitForm = () => {
 	const submitBtn = document.getElementById("orderFormBtn");
@@ -535,6 +585,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	generateMainNav();
 	getProducts();
 	getCharts();
+  bindFilterBtn();
 	bindDeleteAllBtn();
 	bindSubmitForm();
 	getOrders();
